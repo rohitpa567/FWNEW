@@ -2,6 +2,7 @@ package com.cs.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.cs.driver.DriverManager;
 import com.cs.enums.WaitStrategy;
@@ -30,6 +31,12 @@ public class BasePage {
 
 		return DriverManager.getDriver().getTitle();
 
+	}
+	
+	protected void selectFromDropdown(WebElement dropdownElement, String optionValue,String elementName) {
+	    Select dropdown = new Select(dropdownElement);
+	    dropdown.selectByVisibleText(optionValue);
+	    ExtentLogger.pass(elementName);
 	}
 
 }
